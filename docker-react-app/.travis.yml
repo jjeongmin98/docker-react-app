@@ -1,0 +1,13 @@
+sudo: required
+language: generic
+services:
+ - docker
+before_install:
+ - echo "start creating an images with dockerfile"
+ - docker build -t wjrals198/docker-react-app -f dockerfile.dev .
+
+script:
+ - docker run -e CI=true wjrals198/docker-react-app npm run test -- --coverage
+
+after_sucess:
+ = echo "test succes"
