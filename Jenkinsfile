@@ -19,3 +19,5 @@ pipeline {
                 sh "./gradlew clean build test"
             }
         }
+    }
+}
